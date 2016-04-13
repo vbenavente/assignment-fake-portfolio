@@ -21,3 +21,11 @@ Project.prototype.toHtml = function() {
 
   return $newProject;
 };
+
+myProjects.forEach(function() {
+  projects.push(new Project());
+});
+
+projects.forEach(function() {
+  $('#projects').append(toHtml());
+});
