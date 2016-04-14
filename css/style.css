@@ -3,3 +3,51 @@ body {
 	margin-right: 20px;
 	text-align: center;
 }
+
+header {
+	margin: 3em;
+	width: 100%;
+}
+
+ul {
+
+	display: block;
+	position: relative;
+	list-style: none;
+}
+
+li {
+	display: inline-block;
+	text-align: right;
+}
+
+img {
+	width: 75%;
+	height: 10em;
+}
+
+header img {
+	margin-right: 3em;
+}
+
+main {
+	display: block;
+}
+
+@media only screen and (min-width: 700px) {
+	img {
+		width: 50%;
+		height: 10em;
+	}
+}
+
+@media only screen and (min-width: 400px) {
+	img {
+		width: 50%;
+		height:10em;
+	}
+
+	nav li {
+		display: inline-block;
+	}
+}
