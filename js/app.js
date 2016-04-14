@@ -22,8 +22,8 @@ Project.prototype.toHtml = function() {
   return $newProject;
 };
 
-myProjects.forEach(function() {
-  projects.push(new Project());
+myProjects.forEach(function(word) {
+  projects.push(new Project(word));
 });
 
 projects.forEach(function(a) {
