@@ -25,6 +25,12 @@ Project.prototype.toHtml = function() {
 
   return $newProject;
 };
+// Project.prototype.toHtml = function() {
+//   var $source = $('#project-template').html();
+//   var template = Handlebars.compile($source);
+//
+//   return template(this);
+// };
 
 myProjects.sort(function(a,b) {
   return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
