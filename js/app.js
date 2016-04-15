@@ -18,16 +18,20 @@ Project.prototype.toHtml = function() {
   $newProject.find('p').append('<img src="' + this.projectImage + '">');
   $newProject.find('a').attr('href', this.gitUrl);
   $newProject.find('h1').html(this.title);
-  $newProject.find('article-body').html(this.body);
-  $newProject.find('time').attr('datetime', this.publishedOn);
+  $newProject.find('#article-body').html(this.body);
+  $newProject.find('time').append(this.publishedOn);
 
   $newProject.removeClass('template');
 
   return $newProject;
 };
 
-myProjects.forEach(function(word) {
-  projects.push(new Project(word));
+myProjects.sort(function(a,b) {
+  return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
+});
+
+myProjects.forEach(function(element) {
+  projects.push(new Project(element));
 });
 
 projects.forEach(function(a) {
