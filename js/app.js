@@ -3,6 +3,7 @@ var projects = [];
 function Project (items) {
   this.title = items.title;
   this.category = items.category;
+  this.author = items.author;
   this.projectImage = items.projectImage;
   this.gitUrl = items.gitUrl;
   this.publishedOn = items.publishedOn;
@@ -13,7 +14,8 @@ Project.prototype.toHtml = function() {
   var $newProject = $('article.template').clone();
 
   $newProject.attr('data-category', this.category);
-  $newProject.find('address').attr('img', this.projectImage);
+  $newProject.find('#author').prepend(this.author);
+  $newProject.find('p').append('<img src="' + this.projectImage + '">');
   $newProject.find('a').attr('href', this.gitUrl);
   $newProject.find('h1').html(this.title);
   $newProject.find('article-body').html(this.body);
