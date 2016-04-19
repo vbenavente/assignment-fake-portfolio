@@ -17,9 +17,10 @@ Project.prototype.toHtml = function() {
     $newProject.addClass('draft');
   }
 
-  $newProject.find('.author-name').prepend(this.author);
+  $newProject.attr('data-author', this.author);
   $newProject.attr('data-category', this.category);
 
+  $newProject.find('.author-name').prepend(this.author);
   $newProject.find('p').append('<img src="' + this.projectImage + '">');
   $newProject.find('a').attr('href', this.gitUrl);
   $newProject.find('h1').html(this.title);

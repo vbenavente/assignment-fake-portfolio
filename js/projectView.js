@@ -26,15 +26,15 @@ projectView.handleAuthorFilter = function() {
       //get value of option box
       $selected = $('#author-filter option:selected').val();
       //hide all articles
-      $('article').toggle();
+      $('article').hide();
       //iterate over all articles and unhide authors that match selected value
       $('article').each(function(){
-        if($(this).find('.author-name').text() == $selected) {
-          $(this).toggle();
+        if($(this).find('.author-name').text() === $selected) {
+          $(this).show();
         }
       });
     } else {
-      $('article').toggle();
+      $('article').hide();
     }
     $('#category-filter').val('');
   });
@@ -46,16 +46,16 @@ projectView.handleCategoryFilter = function() {
       //get value of option box
       $selected = $('#category-filter option:selected').val();
       //hide all articles
-      $('article').toggle();
+      $('article').hide();
       //iterate over all articles and unhide authors that match selected value
       $('article').each(function(){
-        if($(this).attr('data-category') == $selected) {
-          $(this).toggle();
+        if($(this).attr('data-category') === $selected) {
+          $(this).show();
         }
       });
 
     } else {
-      $('article').toggle();
+      $('article').hide();
     }
     $('#author-filter').val('');
   });
