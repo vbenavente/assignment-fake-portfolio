@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8">
+	 <meta charset="UTF-8">
 	 <title>Victor's Portfolio</title>
 	  <link href="css/normalize.css" type="text/css" rel="stylesheet">
 		<link href="css/base.css" type="text/css" rel="stylesheet">
-		<link href="css/layout.css" type="text/css" rel="stylesheet">
+		<script id="project-template" type="text/x-handlebars-template">
+		</script>
 	</head>
 	<body>
 		<header class="portfolio-header">
@@ -41,7 +42,6 @@
 							<p></p>
 							<a href="" target="_blank">Project</a></address>
 						<time pubdate datetime="2000-01-01">Publish On</time>
-					</div>
 			<section class="article-body"></section>
 			<a href="#" class="read-on">Read on &rarr;</a>
 		</article>
@@ -64,6 +64,7 @@
 			&copy; 2016 Victor Benavete | Portfolio
 		</footer>
 	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
 	<script src="js/projectData.js"></script>
 	<script src="js/app.js"></script>
 	<script src="js/projectView.js"></script>
