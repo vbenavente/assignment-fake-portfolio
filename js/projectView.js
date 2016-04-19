@@ -4,6 +4,63 @@ var projectView = {};
 //remove template so it does not reappear when .toggle is used
 $('article.template').remove();
 
+projectView.populatefilters = function() {
+  $('article').each(function() {
+    if (!$(this).hasClass('template')) {
+      var val = $(this).find('.author-name').html();
+      var optionTag = '<option value"' + val + '">' + val + '</option>';
+      $('#author-filter').append(optionTag);
+
+      val = $(this).attr('data-category');
+      optionTag = '<option value="' + val + '">' + val + '</option>';
+      if ($('#category-filter option[value="' + val + '"]').length === 0) {
+        $('#category-filter').append(optionTag);
+      }
+    }
+  });
+};
+
+projectView.handleAuthorFilter = function() {
+  $('#author-filter').on('change', function() {
+    if ($(this).val()) {
+      //get value of option box
+      $selected = $('#author-filter option:selected').val();
+      //hide all articles
+      $('article').toggle();
+      //iterate over all articles and unhide authors that match selected value
+      $('article').each(function(){
+        if($(this).find('.author-name').text() == $selected) {
+          $(this).toggle();
+        }
+      });
+    } else {
+      $('article').toggle();
+    }
+    $('#category-filter').val('');
+  });
+};
+
+projectView.handleCategoryFilter = function() {
+  $('#category-filter').on('change', function() {
+    if ($(this).val()) {
+      //get value of option box
+      $selected = $('#category-filter option:selected').val();
+      //hide all articles
+      $('article').toggle();
+      //iterate over all articles and unhide authors that match selected value
+      $('article').each(function(){
+        if($(this).attr('data-category') == $selected) {
+          $(this).toggle();
+        }
+      });
+
+    } else {
+      $('article').toggle();
+    }
+    $('#author-filter').val('');
+  });
+};
+
 projectView.handleMainNav = function() {
   $('.main-nav').on('click', 'li', function() {
     $('section').removeClass('active');
@@ -14,16 +71,20 @@ projectView.handleMainNav = function() {
 };
 
 projectView.viewTabs = function() {
-  $('.article-body').hide();
+  $('.article-body *:nth-of-type(n+2)').hide();
 
   $('article').on('click', '.read-on', function(){
     event.preventDefault();
 
     $(this).hide();
-    $('.article-body').show();
+    $('.article-body *:nth-of-type(n+2)').show();
   });
 };
 
 $(document).ready(function() {
+  projectView.populatefilters();
+  projectView.handleAuthorFilter();
+  projectView.handleCategoryFilter();
   projectView.handleMainNav();
+  projectView.viewTabs();
 });

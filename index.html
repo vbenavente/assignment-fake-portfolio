@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="UTF-8">
 	 <title>Victor's Portfolio</title>
 	  <link href="css/normalize.css" type="text/css" rel="stylesheet">
-		<link href="css/style.css" type="text/css" rel="stylesheet">
+		<link href="css/base.css" type="text/css" rel="stylesheet">
 	</head>
 	<body>
 		<header class="portfolio-header">
@@ -11,25 +12,58 @@
 		</header>
 		<nav class="main-nav">
 			<ul>
-				<li class="tab" data-content="projects"><a href="#">Home</a></li>
-				<li class="tab" data-content="aboutMe"><a href="#">About Me</a></li>
-				<li class="icon"><a href="https://www.linkedin.com/in/vbenavente" target="_blank">LinkedIn</a></li>
-				<li class="icon"><a href="https://github.com/vbenavente" target="_blank">GitHub</a></li>
+				<li class="tab icon-home" data-content="projects"><a href="#">Home</a></li>
+				<li class="tab icon-rocket" data-content="aboutMe"><a href="#">About Me</a></li>
+				<li class="icon-linkedin"><a href="https://www.linkedin.com/in/vbenavente" target="_blank">LinkedIn</a></li>
+				<li class="icon-github"><a href="https://github.com/vbenavente" target="_blank">GitHub</a></li>
 			</ul>
 		</nav>
 		<main>
+			<section id= "projects" class="tab-content">
+				<div>
+					<ul id="filters">
+						<li>
+							<select id="author-filter">
+								<option value="">-- Filter by Authors --</option>
+							</select>
+						</li>
+						<li>
+							<select id="category-filter">
+								<option value="">-- Filter by Categories --</option>
+							</select>
+						</li>
+					</ul>
+				</div>
+			</section>
 			<section id="projects" class="tab-content">
 				<article class="template" data-category="cat">
 					<h1>Project Title</h1>
-					<div>
-						By Victor Benavente<address class="image"><a href="">Project</a></address>
-						published<time pubdate datetime="2000-01-01">Publish Time</time>
+					<div><div class="author-name"></div><address class="image">
+							<p></p>
+							<a href="" target="_blank">Project</a></address>
+						<time pubdate datetime="2000-01-01">Publish On</time>
 					</div>
-					<section id="article-body"></section>
 				</article>
+			</section>
+			<section class="article-body"></section>
+			<a href="#" class="read-on">Read on &rarr;</a>
+		</section>
+			<section id="about" class="tab-content">
+				<header>
+					Welcome to my Portfolio!
+				</header>
+				<section>
+					<h1>Some of my interests:</h1>
+					<ul>
+						<li>Coding</li>
+						<li>More content</li>
+						<li>More Content</li>
+					</ul>
+				</section>
 			</section>
 		</main>
 		<footer>
+			&copy; 2016 Victor Benavete | Portfolio
 		</footer>
 	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 	<script src="js/projectData.js"></script>
