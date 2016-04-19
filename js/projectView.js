@@ -62,10 +62,9 @@ projectView.handleCategoryFilter = function() {
 };
 
 projectView.handleMainNav = function() {
-  $('.main-nav').on('click', 'li', function() {
-    $('section').removeClass('active');
-    $tabclicked = $(this).attr('data-content');
-    $('section#' + $tabclicked).addClass('active');
+  $('.main-nav').on('click', '.tab', function(e) {
+    $('.tab-content').hide();
+    $('#' + $(this).data('content')).fadeIn();
   });
   $('.main-nav .tab:first').click();
 };
