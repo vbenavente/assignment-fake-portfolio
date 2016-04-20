@@ -1,25 +1,6 @@
 //Configure a view object to hold all my functions for dynamic updates and project related event handlers
 var projectView = {};
 
-//remove template so it does not reappear when .toggle is used
-$('article.template').remove();
-
-projectView.populatefilters = function() {
-  $('article').each(function() {
-    if (!$(this).hasClass('template')) {
-      var val = $(this).find('.author-name').html();
-      var optionTag = '<option value"' + val + '">' + val + '</option>';
-      $('#author-filter').append(optionTag);
-
-      val = $(this).attr('data-category');
-      optionTag = '<option value="' + val + '">' + val + '</option>';
-      if ($('#category-filter option[value="' + val + '"]').length === 0) {
-        $('#category-filter').append(optionTag);
-      }
-    }
-  });
-};
-
 projectView.handleAuthorFilter = function() {
   $('#author-filter').on('change', function() {
     if ($(this).val()) {
@@ -27,9 +8,9 @@ projectView.handleAuthorFilter = function() {
       $selected = $('#author-filter option:selected').val();
       //hide all articles
       $('article').hide();
-      //iterate over all articles and unhide authors that match selected value
+     //iterate over all articles and unhide authors that match selected value
       $('article').each(function(){
-        if($(this).find('.author-name').text() === $selected) {
+        if($(this).attr('data-author') === $selected) {
           $(this).show();
         }
       });
@@ -62,10 +43,9 @@ projectView.handleCategoryFilter = function() {
 };
 
 projectView.handleMainNav = function() {
-  $('.main-nav').on('click', 'li', function() {
-    $('section').removeClass('active');
-    $tabclicked = $(this).attr('data-content');
-    $('section#' + $tabclicked).addClass('active');
+  $('.main-nav').on('click', '.tab', function(e) {
+    $('.tab-content').hide();
+    $('#' + $(this).data('content')).fadeIn();
   });
   $('.main-nav .tab:first').click();
 };
@@ -82,7 +62,6 @@ projectView.viewTabs = function() {
 };
 
 $(document).ready(function() {
-  projectView.populatefilters();
   projectView.handleAuthorFilter();
   projectView.handleCategoryFilter();
   projectView.handleMainNav();

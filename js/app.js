@@ -1,4 +1,4 @@
-var projects = [];
+var projects = []; authors = []; categories = [];
 
 function Project (items) {
   this.title = items.title;
@@ -10,35 +10,15 @@ function Project (items) {
   this.body = items.body;
 }
 
-Project.prototype.toHtml = function() {
-  var $newProject = $('article.template').clone();
-  $newProject.removeClass('template');
-  if (!this.publishedOn) {
-    $newProject.addClass('draft');
-  }
+Project.prototype.toHtml = function(templateId) {
+  var $source = $('#' + templateId + '-template').html();
+  var template = Handlebars.compile($source);
 
-  $newProject.attr('data-author', this.author);
-  $newProject.attr('data-category', this.category);
+  this.daysAgo = parseInt((new Date() - new Date(this.publishedOn)) / 60 / 60 / 24 / 1000);
+  this.publishStatus = this.publishedOn ? 'published ' + this.daysAgo + ' days ago' : '(draft)';
 
-  $newProject.find('.author-name').prepend(this.author);
-  $newProject.find('p').append('<img src="' + this.projectImage + '">');
-  $newProject.find('a').attr('href', this.gitUrl);
-  $newProject.find('h1').html(this.title);
-  $newProject.find('#article-body').html(this.body);
-  $newProject.find('time').append(' ' + this.publishedOn);
-  $newProject.find('time[pubdate]').attr('datetime', this.publishedOn);
-  $newProject.find('time[pubdate]').attr('title', this.publishedOn);
-  $newProject.find('time').html('about ' + parseInt((new Date() - new Date(this.publishedOn)) / 60 / 60 / 24 / 1000) + ' days ago');
-  $newProject.append('<hr>');
-
-  return $newProject;
+  return template(this);
 };
-// Project.prototype.toHtml = function() {
-//   var $source = $('#project-template').html();
-//   var template = Handlebars.compile($source);
-//
-//   return template(this);
-// };
 
 myProjects.sort(function(a,b) {
   return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
@@ -49,5 +29,13 @@ myProjects.forEach(function(word) {
 });
 
 projects.forEach(function(a) {
-  $('#projects').append(a.toHtml());
+  $('#projects').append(a.toHtml('project'));
+  if(authors.indexOf(a.author) === -1) {
+    $('#author-filter').append(a.toHtml('author'));
+    authors.push(a.author);
+  }
+  if (categories.indexOf(a.category) === -1) {
+    $('#category-filter').append(a.toHtml('category'));
+    categories.push(a.category);
+  }
 });
