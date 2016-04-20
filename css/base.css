@@ -22,21 +22,14 @@ li {
 }
 
 img {
-	width: 75%;
+	width: 100%;
 	height: 10em;
 }
 
-header img {
-	margin-right: 3em;
+header {
+	margin: auto;
 }
 
 main {
 	display: block;
-}
-
-@media only screen and (min-width: 650px) {
-	img {
-		width: 50%;
-		height: 10em;
-	}
 }

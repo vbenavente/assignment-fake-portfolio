@@ -2,7 +2,7 @@ var myProjects = [
   {
     title: 'Budget Buddy',
     category: 'finance',
-    author: 'Victor Benavente, Stefanie Hansen, Dan Stineback, Jeff Russell',
+    author: 'Team Cannoli',
     projectImage: 'images/budget-buddy.png',
     gitUrl: 'http://stefuhnee.github.io/budget-buddy/',
     publishedOn: '04-08-2016',
