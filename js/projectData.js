@@ -6,7 +6,7 @@ var myProjects = [
     projectImage: 'images/budget-buddy.png',
     gitUrl: 'http://stefuhnee.github.io/budget-buddy/',
     publishedOn: '04-08-2016',
-    body: '<p>My First Group Project</p>'
+    body: 'My First Group Project'
   },
   {
     title: 'Bus Mall',
@@ -15,7 +15,7 @@ var myProjects = [
     projectImage: 'images/bus-mall.png',
     girUrl: 'https://github.com/vbenavente/bus-mall',
     publishedOn: '04-04-2016',
-    body: '<p>A survey for what items will sell best according to customers</p>'
+    body: 'A survey for what items will sell best according to customers'
   },
   {
     title: 'Pizza Odyssey',
@@ -24,6 +24,6 @@ var myProjects = [
     projectImage: 'images/pizza-odyssey.png',
     gitUrl: 'https://github.com/vbenavente/pizza-odyssey',
     publishedOn: '04-01-2016',
-    body: '<p>My first solo project</p>'
+    body: 'My first solo project'
   },
 ];

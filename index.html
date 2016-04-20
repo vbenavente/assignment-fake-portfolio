@@ -9,6 +9,14 @@
 	 <link href="css/base.css" type="text/css" rel="stylesheet">
 	 <link href="css/module.css" type="text/css" rel="stylesheet">
 	 <script id="project-template" type="text/x-handlebars-template">
+		 <article class="clearfix" data-author="{{author}}" data-category="{{category}}">
+ 			<h1>{{title}}</h1>
+ 				<div>{{author}}<address><img src="{{projectImage}}">
+ 					<a href="{{gitUrl}}" target="_blank">Project</a></address>
+ 				  {{publishedOn}}
+ 			<section class="article-body">{{body}}</section>
+ 			<a href="#" class="read-on">Read on &rarr;</a>
+ 		</article>
 	 </script>
 	</head>
 	<body>
@@ -40,15 +48,6 @@
 					 </li>
 				 </ul>
 			 </div>
-		<article class="template" data-category="cat">
-			<h1>Project Title</h1>
-				<div><div class="author-name"></div><address class="image">
-					<p></p>
-					<a href="" target="_blank">Project</a></address>
-				  <time pubdate datetime="2000-01-01">Publish On</time>
-			<section class="article-body"></section>
-			<a href="#" class="read-on">Read on &rarr;</a>
-		</article>
 		</section>
 			<section id="aboutMe" class="tab-content">
 				<header>

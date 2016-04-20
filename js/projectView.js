@@ -4,21 +4,21 @@ var projectView = {};
 //remove template so it does not reappear when .toggle is used
 $('article.template').remove();
 
-projectView.populatefilters = function() {
-  $('article').each(function() {
-    if (!$(this).hasClass('template')) {
-      var val = $(this).find('.author-name').html();
-      var optionTag = '<option value"' + val + '">' + val + '</option>';
-      $('#author-filter').append(optionTag);
-
-      val = $(this).attr('data-category');
-      optionTag = '<option value="' + val + '">' + val + '</option>';
-      if ($('#category-filter option[value="' + val + '"]').length === 0) {
-        $('#category-filter').append(optionTag);
-      }
-    }
-  });
-};
+// projectView.populatefilters = function() {
+//   $('article').each(function() {
+//     if (!$(this).hasClass('template')) {
+//       var val = $(this).find('.author-name').html();
+//       var optionTag = '<option value"' + val + '">' + val + '</option>';
+//       $('#author-filter').append(optionTag);
+//
+//       val = $(this).attr('data-category');
+//       optionTag = '<option value="' + val + '">' + val + '</option>';
+//       if ($('#category-filter option[value="' + val + '"]').length === 0) {
+//         $('#category-filter').append(optionTag);
+//       }
+//     }
+//   });
+// };
 
 projectView.handleAuthorFilter = function() {
   $('#author-filter').on('change', function() {
@@ -81,7 +81,7 @@ projectView.viewTabs = function() {
 };
 
 $(document).ready(function() {
-  projectView.populatefilters();
+//  projectView.populatefilters();
   projectView.handleAuthorFilter();
   projectView.handleCategoryFilter();
   projectView.handleMainNav();
