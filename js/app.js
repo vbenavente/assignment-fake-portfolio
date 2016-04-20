@@ -1,4 +1,4 @@
-var projects = [];
+var projects = []; authors = []; categories = [];
 
 function Project (items) {
   this.title = items.title;
@@ -30,4 +30,12 @@ myProjects.forEach(function(word) {
 
 projects.forEach(function(a) {
   $('#projects').append(a.toHtml('project'));
+  if(authors.indexOf(a.author) === -1) {
+    $('#author-filter').append(a.toHtml('author'));
+    authors.push(a.author);
+  }
+  if (categories.indexOf(a.category) === -1) {
+    $('#category-filter').append(a.toHtml('category'));
+    categories.push(a.category);
+  }
 });
