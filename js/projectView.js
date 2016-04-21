@@ -15,7 +15,7 @@ projectView.handleAuthorFilter = function() {
         }
       });
     } else {
-      $('article').hide();
+      $('article').show();
     }
     $('#category-filter').val('');
   });
@@ -36,7 +36,7 @@ projectView.handleCategoryFilter = function() {
       });
 
     } else {
-      $('article').hide();
+      $('article').show();
     }
     $('#author-filter').val('');
   });
