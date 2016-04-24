@@ -61,6 +61,29 @@ projectView.viewTabs = function() {
   });
 };
 
+projectView.create = function() {
+  var project;
+  //$('#projects').empty();
+
+  project = new Project({
+    title: $('#project-title').val(),
+    category: $('#project-category').val(),
+    author: $('#project-author').val(),
+    projectImage: $('#project-projectImage').val(),
+    gitUrl: $('#project-gitUrl').val(),
+    publishedOn: $('#project-publishedOn:checked').length ? util.today() : null,
+    body: $('#project-body').val()
+  });
+
+  $('#projects').append(project.toHtml());
+};
+
+projectView.initIndexPage = function() {
+  Project.all.forEach(function(a) {
+    $('#projects').append(a.toHtml());
+  });
+};
+
 $(document).ready(function() {
   projectView.handleAuthorFilter();
   projectView.handleCategoryFilter();

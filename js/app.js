@@ -10,8 +10,10 @@ function Project (items) {
   this.body = items.body;
 }
 
+Project.all = [];
+
 Project.prototype.toHtml = function(templateId) {
-  var $source = $('#' + templateId + '-template').html();
+  var $source = $('#' + templateId + '-template').text();
   var template = Handlebars.compile($source);
 
   this.daysAgo = parseInt((new Date() - new Date(this.publishedOn)) / 60 / 60 / 24 / 1000);
@@ -26,7 +28,7 @@ Project.loadAll = function(dataPassedIn) {
   });
 
   dataPassedIn.forEach(function(word) {
-    projects.push(new Project(word));
+    Project.all.push(new Project(word));
   });
 };
 
@@ -34,8 +36,9 @@ Project.fetchAll = function() {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
-      var data = JSON.parse(xhr.responsetext);
+      var data = JSON.parse(xhr.responseText);
       Project.loadAll(data);
+      projectView.initIndexPage();
     }
   };
   xhr.open('GET', 'json/projectData.json');
