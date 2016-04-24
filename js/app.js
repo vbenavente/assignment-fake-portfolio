@@ -20,13 +20,27 @@ Project.prototype.toHtml = function(templateId) {
   return template(this);
 };
 
-myProjects.sort(function(a,b) {
-  return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
-});
+Project.loadAll = function(dataPassedIn) {
+  dataPassedIn.sort(function(a,b) {
+    return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
+  });
 
-myProjects.forEach(function(word) {
-  projects.push(new Project(word));
-});
+  dataPassedIn.forEach(function(word) {
+    projects.push(new Project(word));
+  });
+};
+
+Project.fetchAll = function() {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+      var data = JSON.parse(xhr.responsetext);
+      Project.loadAll(data);
+    }
+  };
+  xhr.open('GET', 'json/projectData.json');
+  xhr.send();
+};
 
 projects.forEach(function(a) {
   $('#projects').append(a.toHtml('project'));
