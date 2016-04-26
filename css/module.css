@@ -13,9 +13,33 @@
   color: orange;
 }
 
+.display-nav {
+  display: none;
+  padding: 0px;
+  list-style: none;
+}
+
+.display-nav:hover li{
+  display: block;
+  padding: 10px;
+  margin-right: 0px;
+}
+
+.main-nav ul {
+  display: none;
+}
+
 @media only screen and (min-width: 650px) {
   .icon-menu {
     display: none;
+  }
+
+  .main-nav ul {
+    display: block;
+  }
+
+  .main-nav li {
+    display: inline;
   }
 
 img {
