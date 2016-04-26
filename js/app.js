@@ -29,8 +29,12 @@
       return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
     });
 
-    dataPassedIn.forEach(function(word) {
-      Project.all.push(new Project(word));
+    // dataPassedIn.forEach(function(word) {
+    //   Project.all.push(new Project(word));
+    // });
+
+    Project.all = dataPassedIn.map(function(word) {
+      return new Project(word);
     });
     console.log(Project.all);
   };
@@ -40,17 +44,17 @@
       Project.loadAll(response);
     });
 
-    projects.forEach(function(a) {
-      $('#projects').append(a.toHtml('project'));
-      if(authors.indexOf(a.author) === -1) {
-        $('#author-filter').append(a.toHtml('author'));
-        authors.push(a.author);
-      }
-      if (categories.indexOf(a.category) === -1) {
-        $('#category-filter').append(a.toHtml('category'));
-        categories.push(a.category);
-      }
-    });
+    // projects.forEach(function(a) {
+    //   $('#projects').append(a.toHtml('project'));
+    //   if(authors.indexOf(a.author) === -1) {
+    //     $('#author-filter').append(a.toHtml('author'));
+    //     authors.push(a.author);
+    //   }
+    //   if (categories.indexOf(a.category) === -1) {
+    //     $('#category-filter').append(a.toHtml('category'));
+    //     categories.push(a.category);
+    //   }
+    // });
   };
 
   module.Project = Project;
