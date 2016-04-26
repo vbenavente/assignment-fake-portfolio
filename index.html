@@ -31,16 +31,9 @@
 <body>
 	<header class="portfolio-header clearfix">
 		<img src="images/North-Carolina.jpg">
-		<div class="icon-menu">
-			<ul class="display-nav">
-				<li class="tab" data-content="projects"><a href="#">Home</a></li>
-				<li class="tab" data-content="aboutMe"><a href="#">About Me</a></li>
-				<a href="https://www.linkedin.com/in/vbenavente" target="_blank"><li class="icon-linkedin"></li></a>
-				<a href="https://github.com/vbenavente" target="_blank"><li class="icon-github"></li></a>
-			</ul>
-		</div>
 		<nav class="main-nav" class="tab">
-			<ul>
+			<div class="icon-menu"></div>
+			<ul class="display-nav">
 				<li class="tab" data-content="projects"><a href="#">Home</a></li>
 				<li class="tab" data-content="aboutMe"><a href="#">About Me</a></li>
 				<a href="https://www.linkedin.com/in/vbenavente" target="_blank"><li class="icon-linkedin"></li></a>
@@ -84,9 +77,9 @@
 	</footer>
 	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
-	<script src="js/projectData.js"></script>
-	<script src="js/app.js"></script>
-	<script src="js/projectView.js"></script>
+	<script src="scripts/projectData.js"></script>
+	<script src="scripts/projectController.js"></script>
+	<script src="scripts/projectViewController.js"></script>
 	<script>Project.fetchAll();</script>
 </body>
 </html>

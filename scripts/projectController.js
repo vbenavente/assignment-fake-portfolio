@@ -42,6 +42,7 @@
   Project.fetchAll = function() {
     $.getJSON('json/projectData.json', function(response) {
       Project.loadAll(response);
+      projectView.initIndexPage();
     });
 
     // projects.forEach(function(a) {
