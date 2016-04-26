@@ -64,6 +64,10 @@
   };
 
   projectView.initIndexPage = function() {
+    projectView.handleAuthorFilter();
+    projectView.handleCategoryFilter();
+    projectView.handleMainNav();
+    projectView.viewTabs();
     Project.all.forEach(function(a) {
       $('#projects').append(a.toHtml('project'));
       $('#author-filter').append(a.toHtml('author'));
@@ -71,14 +75,6 @@
     });
   };
 
-  $(document).ready(function() {
-    projectView.initIndexPage();
-    projectView.handleAuthorFilter();
-    projectView.handleCategoryFilter();
-    projectView.handleMainNav();
-    projectView.viewTabs();
-  });
-
-  module.Project = Project;
+  module.projectView = projectView;
 
 }) (window);
