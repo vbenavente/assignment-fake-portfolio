@@ -15,7 +15,7 @@ projectView.handleAuthorFilter = function() {
         }
       });
     } else {
-      $('article').hide();
+      $('article').show();
     }
     $('#category-filter').val('');
   });
@@ -36,7 +36,7 @@ projectView.handleCategoryFilter = function() {
       });
 
     } else {
-      $('article').hide();
+      $('article').show();
     }
     $('#author-filter').val('');
   });
@@ -61,7 +61,16 @@ projectView.viewTabs = function() {
   });
 };
 
+projectView.initIndexPage = function() {
+  Project.all.forEach(function(a) {
+    $('#projects').append(a.toHtml('project'));
+    $('#author-filter').append(a.toHtml('author'));
+    $('#category-filter').append(a.toHtml('category'));
+  });
+};
+
 $(document).ready(function() {
+  projectView.initIndexPage();
   projectView.handleAuthorFilter();
   projectView.handleCategoryFilter();
   projectView.handleMainNav();
