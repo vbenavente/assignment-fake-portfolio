@@ -13,15 +13,11 @@
   color: orange;
 }
 
-.main-nav {
-  display: block;
-}
-
-.display-nav {
+.main-nav ul {
   display: none;
 }
 
-.display-nav:hover ul {
+.main-nav:hover ul {
   display: block;
   background-color: green;
 }
