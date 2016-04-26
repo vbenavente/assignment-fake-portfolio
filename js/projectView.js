@@ -61,30 +61,16 @@ projectView.viewTabs = function() {
   });
 };
 
-projectView.create = function() {
-  var project;
-  //$('#projects').empty();
-
-  project = new Project({
-    title: $('#project-title').val(),
-    category: $('#project-category').val(),
-    author: $('#project-author').val(),
-    projectImage: $('#project-projectImage').val(),
-    gitUrl: $('#project-gitUrl').val(),
-    publishedOn: $('#project-publishedOn:checked').length ? util.today() : null,
-    body: $('#project-body').val()
-  });
-
-  $('#projects').append(project.toHtml());
-};
-
 projectView.initIndexPage = function() {
   Project.all.forEach(function(a) {
-    $('#projects').append(a.toHtml());
+    $('#projects').append(a.toHtml('project'));
+    $('#author-filter').append(a.toHtml('author'));
+    $('#category-filter').append(a.toHtml('category'));
   });
 };
 
 $(document).ready(function() {
+  projectView.initIndexPage();
   projectView.handleAuthorFilter();
   projectView.handleCategoryFilter();
   projectView.handleMainNav();

@@ -30,29 +30,23 @@ Project.loadAll = function(dataPassedIn) {
   dataPassedIn.forEach(function(word) {
     Project.all.push(new Project(word));
   });
+  console.log(Project.all);
 };
 
 Project.fetchAll = function() {
-  var xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4) {
-      var data = JSON.parse(xhr.responseText);
-      Project.loadAll(data);
-      projectView.initIndexPage();
-    }
-  };
-  xhr.open('GET', 'json/projectData.json');
-  xhr.send();
-};
+  $.getJSON('json/projectData.json', function(response) {
+    Project.loadAll(response);
+  });
 
-projects.forEach(function(a) {
-  $('#projects').append(a.toHtml('project'));
-  if(authors.indexOf(a.author) === -1) {
-    $('#author-filter').append(a.toHtml('author'));
-    authors.push(a.author);
-  }
-  if (categories.indexOf(a.category) === -1) {
-    $('#category-filter').append(a.toHtml('category'));
-    categories.push(a.category);
-  }
-});
+  // projects.forEach(function(a) {
+  //   $('#projects').append(a.toHtml('project'));
+  //   if(authors.indexOf(a.author) === -1) {
+  //     $('#author-filter').append(a.toHtml('author'));
+  //     authors.push(a.author);
+  //   }
+  //   if (categories.indexOf(a.category) === -1) {
+  //     $('#category-filter').append(a.toHtml('category'));
+  //     categories.push(a.category);
+  //   }
+  // });
+};
