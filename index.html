@@ -4,10 +4,10 @@
 	<meta charset="UTF-8">
 	<title>Victor's Portfolio</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="css/normalize.css" type="text/css" rel="stylesheet">
+	<link href="vendors/styles/normalize.css" type="text/css" rel="stylesheet">
 	<link href="icomoon/style.css" type="text/css" rel="stylesheet">
-	<link href="css/base.css" type="text/css" rel="stylesheet">
-	<link href="css/module.css" type="text/css" rel="stylesheet">
+	<link href="styles/base.css" type="text/css" rel="stylesheet">
+	<link href="styles/module.css" type="text/css" rel="stylesheet">
 	<script id="project-template" type="text/x-handlebars-template">
 		<article class="clearfix" data-author="{{author}}" data-category="{{category}}">
 			<h1>{{title}}</h1>
@@ -34,8 +34,8 @@
 		<nav class="main-nav" class="tab">
 			<div class="icon-menu"></div>
 			<ul class="display-nav">
-				<li class="tab" data-content="projects"><a href="#">Home</a></li>
-				<li class="tab" data-content="aboutMe"><a href="#">About Me</a></li>
+				<li class="tab" data-content="projects"><a href="/">Home</a></li>
+				<li class="tab" data-content="aboutMe"><a href="/about">About Me</a></li>
 				<a href="https://www.linkedin.com/in/vbenavente" target="_blank"><li class="icon-linkedin"></li></a>
 				<a href="https://github.com/vbenavente" target="_blank"><li class="icon-github"></li></a>
 			</ul>
@@ -75,11 +75,19 @@
 	<footer>
 		&copy; 2016 Victor Benavete | Portfolio
 	</footer>
+
 	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+	<script src="vendors/scripts/page.js"></script>
+
 	<script src="scripts/projectData.js"></script>
+	<script src="scripts/project.js"></script>
 	<script src="scripts/projectController.js"></script>
-	<script src="scripts/projectViewController.js"></script>
-	<script>Project.fetchAll();</script>
+	<script src="scripts/projectView.js"></script>
+	<script src="scripts/aboutController.js"></script>
+	<script src="scripts/routes.js"></script>
+
+	<!--<script>Project.fetchAll();</script>-->
+
 </body>
 </html>
