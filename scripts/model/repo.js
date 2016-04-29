@@ -3,18 +3,13 @@
 
   repos.all = [];
 
-  // $.getJSON('data/projectData.json', function(response) {
-  //   Project.loadAll(response);
-  //   projectView.initIndexPage();
-  // });
-
   repos.requestRepos = function(callback) {
-    $.getJSON('https://api.github.com/vbenavente/repos' +
+    $.getJSON('https://api.github.com/users/vbenavente/repos' +
         '?per>page5' +
         '&sort=updated', function(response) {
       repos.all = response;
-      callback(response);
     });
+    callback();
   };
 
   repos.with = function(attr) {

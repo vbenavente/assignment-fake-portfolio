@@ -13,7 +13,8 @@
   repoView.index = function() {
     ui();
 
-    $('#about').append(repos.with('name').map(render));
+    $('#gitHub ul').append(
+      repos.with('name').map(render));
   };
 
   module.repoView = repoView;

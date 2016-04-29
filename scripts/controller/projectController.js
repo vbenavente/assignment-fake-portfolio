@@ -3,11 +3,11 @@
 
   projectController.index = function() {
     $('#projects').empty();
-    repos.requestRepos(repoView.index());
-    //Project.fetchAll(projectView.initIndexPage);
+    // repos.requestRepos(repoView.index());
+    Project.fetchAll(projectView.initIndexPage);
 
-    $('main > section').hide();
-    $('#projects').show();
+    //$('main > section').hide();
+    $('#projects').show().siblings().hide;
   };
 
   module.projectController = projectController;

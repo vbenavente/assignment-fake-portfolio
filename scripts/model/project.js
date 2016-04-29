@@ -37,13 +37,13 @@
     console.log(Project.all);
   };
 
-  // Project.fetchAll = function() {
-  //   $.getJSON('data/projectData.json', function(response) {
-  //     Project.loadAll(response);
-  //     projectView.initIndexPage();
-  //   });
+  Project.fetchAll = function() {
+    $.getJSON('data/projectData.json', function(response) {
+      Project.loadAll(response);
+      projectView.initIndexPage();
+    });
 
-    // projects.forEach(function(a) {
+    // Project.all.forEach(function(a) {
     //   $('#projects').append(a.toHtml('project'));
     //   if(authors.indexOf(a.author) === -1) {
     //     $('#author-filter').append(a.toHtml('author'));
@@ -54,7 +54,7 @@
     //     categories.push(a.category);
     //   }
     // });
-  //};
+  };
 
   module.Project = Project;
 
