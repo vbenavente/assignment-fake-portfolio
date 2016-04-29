@@ -37,11 +37,11 @@
     console.log(Project.all);
   };
 
-  Project.fetchAll = function() {
-    $.getJSON('data/projectData.json', function(response) {
-      Project.loadAll(response);
-      projectView.initIndexPage();
-    });
+  // Project.fetchAll = function() {
+  //   $.getJSON('data/projectData.json', function(response) {
+  //     Project.loadAll(response);
+  //     projectView.initIndexPage();
+  //   });
 
     // projects.forEach(function(a) {
     //   $('#projects').append(a.toHtml('project'));
@@ -54,7 +54,7 @@
     //     categories.push(a.category);
     //   }
     // });
-  };
+  //};
 
   module.Project = Project;
 

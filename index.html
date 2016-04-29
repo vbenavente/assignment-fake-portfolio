@@ -32,6 +32,12 @@
 			<a href="{{html_url}}" target="_blank"><h3>{{name}}</h3></a>
 			<p>Description: {{description}}</p>
 			<p>Language: {{language}}</p>
+			<p>Created: {{created_at}}</p>
+				{{#if watchers_count}}
+				<p>{{watchers_count}} watching this repo</p>
+				{{/if}}
+			</li>
+		</script>
 </head>
 <body>
 	<header class="portfolio-header clearfix">
@@ -69,13 +75,14 @@
 			</header>
 			<section>
 				<h1>Some of my interests:</h1>
-				<ul class="about">
+				<ul id="about">
 					<li>Coding</li>
 					<li>More content</li>
 					<li>More Content</li>
 				</ul>
 			</section>
 		</section>
+
 	</main>
 	<footer>
 		&copy; 2016 Victor Benavete | Portfolio

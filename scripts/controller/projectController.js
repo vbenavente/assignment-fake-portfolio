@@ -3,7 +3,8 @@
 
   projectController.index = function() {
     $('#projects').empty();
-    Project.fetchAll(projectView.initIndexPage);
+    repos.requestRepos(repoView.index());
+    //Project.fetchAll(projectView.initIndexPage);
 
     $('main > section').hide();
     $('#projects').show();
