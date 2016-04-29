@@ -27,6 +27,18 @@
 	<script id="category-template" type="text/x-handlebars-template">
 		<option value="{{category}}">{{category}}</option>
 	</script>
+	<script id="repo-template" type="text/x-handlebars-template">
+		<li>
+			<a href="{{html_url}}" target="_blank"><h3>{{name}}</h3></a>
+			<p>Description: {{description}}</p>
+			<p>Language: {{language}}</p>
+			<p>Created: {{created_at}}</p>
+			<p>Last updated: {{updated_at}}</p>
+				{{#if watchers_count}}
+				<p>{{watchers_count}} watching this repo</p>
+				{{/if}}
+			</li>
+		</script>
 </head>
 <body>
 	<header class="portfolio-header clearfix">
@@ -64,27 +76,41 @@
 			</header>
 			<section>
 				<h1>Some of my interests:</h1>
-				<ul class="about">
+				<ul id="about">
 					<li>Coding</li>
 					<li>More content</li>
 					<li>More Content</li>
 				</ul>
 			</section>
+			<section id="gitHub">
+				<h1>Github Projects:</h1>
+				<ul>
+					<li>Coding Project Please Show Up</li>
+				</ul>
+			</section>
 		</section>
+
 	</main>
 	<footer>
 		&copy; 2016 Victor Benavete | Portfolio
 	</footer>
 
-	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="vendors/scripts/jquery-2.2.0.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
 	<script src="vendors/scripts/page.js"></script>
 
+	<script src="scripts/gitHubToken.js"></script>
+
 	<script src="scripts/projectData.js"></script>
-	<script src="scripts/project.js"></script>
-	<script src="scripts/projectController.js"></script>
-	<script src="scripts/projectView.js"></script>
-	<script src="scripts/aboutController.js"></script>
+	<script src="scripts/model/project.js"></script>
+	<script src="scripts/model/repo.js"></script>
+
+	<script src="scripts/view/projectView.js"></script>
+	<script src="scripts/view/repoView.js"></script>
+
+	<script src="scripts/controller/projectController.js"></script>
+	<script src="scripts/controller/aboutController.js"></script>
+
 	<script src="scripts/routes.js"></script>
 
 	<!--<script>Project.fetchAll();</script>-->
